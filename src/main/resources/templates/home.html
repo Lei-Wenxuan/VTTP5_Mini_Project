@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Mini Project</title>
+    <!-- Linking Unicons For Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="sidebar-hidden">
+    <div class="container">
+      <!-- Header / Navbar -->
+      <header>
+        <nav class="navbar">
+          <div class="nav-section nav-left">
+            <button class="nav-button menu-button">
+              <i class="uil uil-bars"></i>
+            </button>
+            <a th:href="@{/}" class="nav-logo">
+              <img src="/images/logo.png" alt="Logo" class="logo-image" />
+              <h2 class="logo-text">MiniTube</h2>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <button
+              class="nav-button search-back-button"
+              id="search-back-button"
+            >
+              <i class="uil uil-arrow-left"></i>
+            </button>
+          </div>
+
+          <div class="nav-section nav-center">
+            <form
+              method="post"
+              th:action="@{/results}"
+              th:object="${searchInfo}"
+              class="search-form"
+            >
+              <input
+                type="search"
+                name="query"
+                th:field="*{query}"
+                placeholder="Search"
+                class="search-input"
+                required
+              />
+              <button class="nav-button search-button">
+                <i class="uil uil-search"></i>
+              </button>
+            </form>
+            <button class="nav-button mic-button">
+              <i class="uil uil-microphone"></i>
+            </button>
+          </div>
+
+          <div class="nav-section nav-right">
+            <button class="nav-button search-button" id="search-button">
+              <i class="uil uil-search"></i>
+            </button>
+            <button class="nav-button theme-button">
+              <i class="uil uil-moon"></i>
+            </button>
+            <a th:href="@{/authorise}"
+              ><img th:src="${userPicture}" alt="User Image" class="user-image"
+            /></a>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main Layout -->
+      <main class="main-layout">
+        <div class="screen-overlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="nav-section nav-left">
+            <button class="nav-button menu-button">
+              <i class="uil uil-bars"></i>
+            </button>
+            <a th:href="@{/}" class="nav-logo">
+              <img src="/images/logo.png" alt="Logo" class="logo-image" />
+              <h2 class="logo-text">MiniTube</h2>
+            </a>
+          </div>
+
+          <div class="links-container">
+            <ul class="link-section">
+              <li>
+                <a th:href="@{/}" class="link-item">
+                  <i class="uil uil-estate"></i> Home
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-video"></i> Shorts
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-tv-retro"></i> Subscriptions
+                </a>
+              </li>
+            </ul>
+
+            <div class="section-separator"></div>
+
+            <ul class="link-section">
+              <h4 class="section-title">You</h4>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-user-square"></i> Your channel
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-history"></i> History
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-clock"></i> Watch later
+                </a>
+              </li>
+            </ul>
+            <div class="section-separator"></div>
+
+            <ul class="link-section">
+              <h4 class="section-title">Explore</h4>
+              <div class="link-item dropdown">
+                <li class="link-item">
+                  <i class="uil uil-fire"></i> Trending
+                  <i class="dropdown-icon uil uil-angle-down"></i>
+                </li>
+                <ul class="dropdown-menu">
+                  <li><a href="#" class="link-item">Popular Videos</a></li>
+                  <li><a href="#" class="link-item">News</a></li>
+                  <li><a href="#" class="link-item">Lifestyle</a></li>
+                </ul>
+              </div>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-music"></i> Music
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-basketball"></i> Gaming
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-trophy"></i> Sports
+                </a>
+              </li>
+            </ul>
+            <div class="section-separator"></div>
+
+            <ul class="link-section">
+              <h4 class="section-title">More from YouTube</h4>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-shield-plus"></i> YouTube Plus
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-headphones-alt"></i> YouTube Music
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-airplay"></i> YouTube Kids
+                </a>
+              </li>
+            </ul>
+            <div class="section-separator"></div>
+
+            <ul class="link-section">
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-setting"></i> Settings
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-file-medical-alt"></i> Report
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-question-circle"></i> Help
+                </a>
+              </li>
+              <li>
+                <a href="#" class="link-item">
+                  <i class="uil uil-exclamation-triangle"></i> Feedback
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="content-wrapper">
+          <!-- Category List -->
+          <div class="category-list">
+            <a
+              th:href="@{/}"
+              class="category-a"
+              th:classappend="${categoryId} == '0' ? active : non-active"
+              >All</a
+            >
+            <a
+              th:each="category: ${categoryMap}"
+              th:href="@{${'/filter/'+category.key}}"
+              th:text="${category.value}"
+              class="category-a"
+              th:classappend="${categoryId} == ${category.key} ? active : non-active"
+            ></a>
+          </div>
+
+          <!-- Video List -->
+          <div class="video-list">
+            <a
+              th:each="video: ${videos}"
+              th:href="@{${'/watch?v='+video.videoId}}"
+              class="video-card"
+            >
+              <div class="thumbnail-container">
+                <img
+                  th:src="${video.thumbnailUrl}"
+                  alt="Video Thumbnail"
+                  class="thumbnail"
+                />
+                <p th:text="${video.videoDuration}" class="duration"></p>
+              </div>
+              <div class="video-info">
+                <img
+                  th:src="${video.channelInfo.thumbnailUrl}"
+                  alt="Channel Logo"
+                  class="icon"
+                />
+                <div class="video-details">
+                  <h2 th:text="${video.title}" class="title"></h2>
+                  <p
+                    th:text="${video.channelInfo.name}"
+                    class="channel-name"
+                  ></p>
+                  <p class="views">
+                    <span
+                      th:text="${#numbers.formatInteger(video.videoStatistics.viewCount, 0, 'COMMA')}"
+                    ></span>
+                    views • <span th:text="${video.prettyDate}"></span>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Linking custom script -->
+    <script src="/script.js"></script>
+  </body>
+</html>
