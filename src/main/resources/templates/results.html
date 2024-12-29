@@ -238,7 +238,7 @@
                     <span
                       th:text="${#numbers.formatInteger(video.videoStatistics.viewCount, 0, 'COMMA')}"
                     ></span>
-                    Views
+                    views • <span th:text="${video.prettyDate}"></span>
                   </p>
                 </div>
               </div>
